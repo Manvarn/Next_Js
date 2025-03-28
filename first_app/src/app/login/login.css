@@ -1,0 +1,28 @@
+.layout-container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #0070f3;
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: red;
+}
