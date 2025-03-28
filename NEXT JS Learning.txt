@@ -1,0 +1,260 @@
+-----------------------x------------------------x-----------------------------
+
+=> Next.js installation process :-
+
+PS D:\Nikhil\NEXT JS> npx create-next-app@latest
+√ What is your project named? ... style_app
+√ Would you like to use TypeScript? ... No / Yes
+√ Would you like to use ESLint? ... No / Yes
+√ Would you like to use Tailwind CSS? ... No / Yes
+√ Would you like your code inside a `src/` directory? ... No / Yes
+√ Would you like to use App Router? (recommended) ... No / Yes
+√ Would you like to use Turbopack for `next dev`? ... No / Yes
+√ Would you like to customize the import alias (`@/*` by default)? ... No / Yes
+√ What import alias would you like configured? ... @/*
+-----------------------x------------------------x-----------------------------
+
+-> Next Js ni catergory full stack hai.
+
+-> <button
+        onClick={() => {
+          alert("Hello");
+        }}
+      >   
+agar apde client component ni jem treat kariye to ene upper define karvu pade 'use client' becoz ae by default server side j hoy atle.
+- "use client" -> must be in first line (always)
+
+- jyre ave component use kariy to ae client side j run thay aem  , client side ma render karvanu atle button ne ae badha component chale
+
+-> state hamara ek component hota he jo ki component ki under hi use hota he iske bahar use nahi kar sakte agar ek state ke data ko component ko bahar access karna he to props se hoga , state se nahi hoga.
+
+-> Rendering no simple meaning is apke code ko html ke under convert kardena.
+
+-> jab aap ek variable declase karte ho to wo iss component ko re-render nahi karta , but aap jab ek state declare karte ho or usko update karte ho to wo component ko re-render karta hai .
+
+-> Always use React components as components (<MyComponent />) instead of calling them as functions.	
+
+->1️⃣ Using as a Component (<MyComponent />) --> Works like an HTML tag in JSX / React handles it properly (state, hooks, props, etc.)
+
+->2️⃣ Using as a Function (MyComponent()) --> Just a normal function call / React does not manage it like a component / State & hooks may break
+
+->  Always use <MyComponent />, not MyComponent().	
+
+-> Next.js uses a file-system based router. (Nest.js pase potani j routing hoy , react js ni jem package install na karvu pade)
+
+-> ek page thi bija page ma thay to ene linking kevay (link per thi apde bije page ma jaiye to linking kevay) , ek screen thi bija screen ae jay to ae navigation thay gayu (koi event dwara click per bija page ma javai to ene navigation kevay) .
+
+-> common layout - yeh common area provide karti he apne child vale routes ko (sabko common area dega) 
+
+-> conditional layout - apde navbar ni under ghana badha "li tag" lidha hoy aema thi apde amuk ne batavu chene amuk ne nathi batavu to ae mate use thay che.
+
+-> Dynamic Routing ([param]) → For pages where only one dynamic parameter is expected. ( when the URL structure changes dynamically (e.g., /product/[id]))
+
+-> Catch-All Routing ([...param]) → For pages where multiple nested parameters need to be captured dynamically.
+
+-> catch-All ni under apde kyre folder na banavi sakiye , file banavi sakiye but apde aeni under component banavi sakiye and as a props pass kari sakiye .
+
+-> 🚀 Next.js Error: "A param property was accessed directly with params.lecture"
+- This error happens because, in Next.js App Router (app directory), params is now a Promise and should be unwrapped using useParams() or use() before accessing its properties.
+
+-> middleware ek aesa code hota hai ki wo apki routing request complete hone se pele hi execute ho jata hai.
+
+-> routing request - jyre apde koi route load karne ki kosis karte ho to do chije hoti hai ek to pele uski request badme uska response ata hai server se reqest hone ke badme aur response aene se pele middleware vali file hoti hai wo code hamra execute hota hai.
+
+-> NextResponse is a powerful tool in Next.js for handling responses efficiently.
+
+
+------------------------------------------
+
+✅ 1️⃣ What is Client-Side Rendering (CSR)?
+Client-Side Rendering (CSR) means the page loads first, and then JavaScript fetches data and updates the content dynamically. The rendering happens in the browser (client side) instead of the server.
+
+✔ Faster initial load (if JavaScript is optimized)
+✔ Great for real-time or interactive apps
+❌ Not SEO-friendly (Content is fetched after page load)
+
+✅ 2️⃣ How CSR Works in Next.js?
+- Initial HTML is sent to the browser (without content).
+- JavaScript runs in the browser and fetches data.
+- Content updates dynamically after fetching data.
+
+------------------------------------------
+
+
+✅ 2️⃣ What is Static Site Generation (SSG)?
+SSG (Static Site Generation) means the page is pre-built at build time and served as a static HTML file. This results in faster loading speeds and better SEO.
+
+✔ Super fast (pre-rendered at build time).
+✔ Best for SEO (search engines get a fully rendered page).
+❌ Not ideal for frequently changing data (e.g., user dashboards).
+
+📌 How SSG Works in Next.js?
+1️⃣ During build time, Next.js fetches data and generates static HTML pages.
+2️⃣ The pages are stored and served instantly to users.
+3️⃣ The content remains the same until the site is rebuilt.
+
+-> Static Site Generation (SSG) in Next.js pre-builds pages at compile time, generating static HTML files for faster performance and better SEO. 
+
+-----------------------------------------
+
+✅ 1️⃣ What is Server-Side Rendering (SSR)?
+SSR (Server-Side Rendering) means that each request triggers the server to fetch data and generate an HTML page dynamically. This ensures the page always has fresh, up-to-date data.
+
+✔ Good for SEO (pre-rendered content is sent to search engines).
+✔ Always shows the latest data (fetches on every request).
+❌ Slower than SSG because the server processes each request.
+
+📌 How SSR Works in Next.js?
+1️⃣ A user requests a page.
+2️⃣ The Next.js server fetches data from an API/database.
+3️⃣ The server generates the HTML page on the fly and sends it to the browser.
+4️⃣ The user sees a fully loaded page with fresh data.
+
+-----------------------------------------
+
+
+-> pre-rendering means code browser ma aviya pela j render thay jay che . (generate html in advance on the server side)
+
+-> css in under inline ni priority vadhre hoy atle pela ae aene access apse.
+
+-> generateMetadata -> koi project ma apde chrome ma inspect kariye tyre html body tag ni under (meta charset , meta name ) ne aa badhu ave ene Metadata j kevay. Metadata apki seo ki ander help karta hai , title tag , desciprtion , key word .
+
+-> Metadata is data that provides information about a webpage, like title, description, and keywords for SEO.
+
+-> Dynamic Metadata is metadata that changes based on the page content or user input, improving SEO for dynamic websites. 
+
+-> html script tag - agar hum html ka script tag use karogena to wo library ko pure ke pure project load karega.
+
+-> script component - next js ka script component use library ko specific page ke under ek specific component ke under hi load kar sakta he
+
+-> The Script component in Next.js is used to efficiently load third-party scripts (like Google Analytics, chat widgets, or ads) while improving performance. [The Script component in Next.js helps you add external scripts (like tracking, ads, or widgets) in a way that doesn’t slow down your website. ] [Think of the Script component in Next.js as a way to add extra features (like Google Analytics, chat widgets, or ads) without slowing down your website. It loads scripts smartly so that your page remains fast. ]
+
+->  Static assets (like images, fonts, and other files) are typically stored in the public/ folder and accessed directly using their URL path.  (je private na hoy , apde varamvar change na kari sakiye , folder structure ma bhi kyrey jarur na pade change karvani)
+
+-> build - jo bhi hum code likhte hai node js , react js  wo code directly run nahi hota browser ke uper , pele hume aesa code jenerate karna padta hai jo browser samaj paye aur borswer execute kare pahe aur usi ko hum bolte hai build.
+
+-> build are two types : 1> Production or 2> Development , aur dusra hum custom bhi bana sakte hai ja per hum apne hisab se config kar sakte ho (islint ki kar sakte hai , javascript ki kar sakte hai)
+
+-> production build - develpoment apde tyre karsu jyre apdi puri application bani gay hase tyre 
+
+-> difference between production and development build  
+	- production alag url ke uper chalti hai , 
+	- development vali build hoti he wo thodi si slow hoti hai aur uska size bhi bada hota hai / production build hamri fast hoti hai aur size chota hota hai.
+
+---------- x --------- x ---------- x ---------- x ---------- x ---------- x ----------
+
+📌 Understanding Build & Production Build in Next.js (Beginner Friendly) 🚀
+When working with Next.js or any other framework, you will often hear the term "Build" and "Production Build". Let's break it down in the simplest way possible! 😊
+
+-------------------------------------
+1️⃣ What is a Build?
+A build is the process of converting your Next.js code into an optimized, ready-to-use version.
+When you write code in JavaScript, React, or Next.js, it needs to be compiled, minified, and optimized before users can access it.
+
+🔹 What happens during the build process?
+✔ JavaScript & CSS Minification → Reduces file size for faster loading.
+✔ Code Splitting → Loads only the required parts of your app.
+✔ Pre-rendering (for static pages) → Converts React components into plain HTML/CSS for better performance.
+✔ Optimized Images & Fonts → Improves page speed and SEO.
+
+👉 Think of it like this:
+You write a rough draft (your code), and the build process polishes it into a clean, fast, and deployable version!
+
+-------------------------------------
+2️⃣ Types of Build in Next.js?
+In Next.js, there are two major types of builds:
+
+📌 1. Static Site Generation (SSG) - Pre-Built Pages
+🔹 Pages are pre-built at the time of deployment.
+🔹 The final HTML is generated before users visit the website.
+🔹 Very fast and SEO-friendly because pages load instantly.
+
+📌 2. Server-Side Rendering (SSR) - Dynamic Pages
+🔹 Pages are generated on the server every time a user requests them.
+🔹 Used when content changes frequently (e.g., live stock prices, news updates).
+🔹 Slightly slower than SSG but ensures fresh data.
+
+-------------------------------------
+3️⃣ What is a Production Build?
+A production build is a fully optimized version of your Next.js app that is ready to be deployed for real users.
+
+🔹 Removes unnecessary code.
+🔹 Improves speed and efficiency.
+🔹 Generates a .next/ folder, which contains the final version of your website.
+
+Without a production build, your Next.js app will be slow and not optimized for real-world usage.
+
+-------------------------------------
+4️⃣ How to Make a Production Build in Next.js?
+Making a production build is super easy! Just run:
+
+ - npm run build
+ - yarn build
+ - pnpm build
+
+What happens?
+✔ Next.js optimizes your code.
+✔ Generates the .next/ folder with the final version.
+✔ Prepares pages for SSG or SSR.
+
+-------------------------------------
+5️⃣ How to Run a Production Build?
+After building your app, you need to run it in production mode:
+
+ - npm run start
+ - yarn start
+ - pnpm start
+
+✔ This starts the optimized Next.js server.
+✔ Your app is now running faster and more efficiently.
+✔ You can deploy it to Vercel, Netlify, or any hosting service.
+
+-------------------------------------
+🔹 Final Thoughts
+✔ If your app has mostly static content, use SSG.
+✔ If your app needs real-time updates, use SSR.
+✔ Always create a production build before deploying for the best performance.
+
+---------- x --------- x ---------- x ---------- x ---------- x ---------- x ----------
+
+
+
+-> static html page ko kis tarike se hum export kar sakte he next js ke build ke sath - next.config.mjs ni under object ni under [output:"export ",] aa rite file export thay .
+
+-> getStaticProps - Fetches data at build time and pre-renders the page as a static HTML file for better performance and SEO. (build time per data fetch kare che and static html page ne re-render kare che.)
+
+-> server side hamra code run hota he usko hum bolte hai pre-rendering . pre-rendering 2 type ki hoti he server-side rendering and static side rendering .
+
+-> server side rendering tab hoti he jab hum us page ko call karte hai aur uska code server side per hi js se html me convert ho jata hai.
+
+-> Navigation - koi user khub se action perform karta hai kisi button ke uper kisi link ke uper to use bolte hai navigation.
+
+-> Redirect - agar koi cheez apne aap ek url se dusre url me move hoti hai to directly address enter karne ke uper to use bolte he redirection.	 ([apde koi bhi page access karvani try kari hoy to ae redirect thay but je page me redirect import karaviyu hoy ae page j gayab thay jay]  or [ka to ae maintance ma hoy atle apde next.config.mjs ma redirects laine karvanu])
+
+-> Yes, it is common practice to store credentials (such as API keys, database passwords, and secret keys) in a .env file to keep them separate from the main codebase. However, the .env file should be kept secure and excluded from version control (e.g., by adding it to .gitignore) to prevent unauthorized access.
+
+	- 🔹 Environment variables are key-value pairs that define settings for an application. They can be used to configure your app for different environments (e.g., development, testing, production).
+
+-> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
